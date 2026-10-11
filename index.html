@@ -356,9 +356,17 @@ if ('serviceWorker' in navigator) {
       entrada.focus();
     }
   });
+let appOculta = false;
 
-  document.addEventListener("visibilitychange", function () {
-    if (document.hidden) bloquear();
+document.addEventListener("visibilitychange", function () {
+  if (document.hidden) {
+    appOculta = true;
+  } else if (appOculta) {
+    appOculta = false;
+    bloquear();
+  }
+});
+  
   });
 
   window.addEventListener("pageshow", bloquear);
