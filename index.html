@@ -244,4 +244,125 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => { navigator.serviceWorker.register('./sw.js').catch(() => {}); });
 }
 </script>
+  
+<style>
+#pin-pantalla {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #080d18;
+  color: #f3f7ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: system-ui, sans-serif;
+}
+#pin-pantalla .pin-caja {
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  background: #111a29;
+  border: 1px solid #d6b56d;
+  border-radius: 24px;
+  padding: 28px 22px;
+}
+#pin-pantalla .pin-icono {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+#pin-pantalla h2 {
+  color: #f2d995;
+  margin: 0 0 8px;
+}
+#pin-pantalla p {
+  color: #91a0b7;
+  font-size: 14px;
+}
+#pin-entrada {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 12px;
+  border: 1px solid #d6b56d;
+  background: #080d18;
+  color: white;
+  font-size: 24px;
+  letter-spacing: 8px;
+  text-align: center;
+}
+#pin-pantalla button {
+  width: 100%;
+  padding: 13px;
+  border: 0;
+  border-radius: 12px;
+  background: #d6b56d;
+  color: #15130e;
+  font-size: 16px;
+  font-weight: 800;
+}
+#pin-error {
+  color: #ff7185 !important;
+  min-height: 20px;
+}
+</style>
+
+<div id="pin-pantalla">
+  <div class="pin-caja">
+    <div class="pin-icono">🔐</div>
+    <h2>Mi Ahorro</h2>
+    <p>Ingresa tu código de 6 dígitos</p>
+    <form id="pin-formulario">
+      <input id="pin-entrada"
+        type="password"
+        inputmode="numeric"
+        pattern="[0-9]{6}"
+        maxlength="6"
+        minlength="6"
+        placeholder="••••••"
+        autocomplete="off"
+        required>
+      <button type="submit">Desbloquear</button>
+      <p id="pin-error"></p>
+    </form>
+  </div>
+</div>
+
+<script>
+(function () {
+  const PIN_CORRECTO = "092011";
+  const pantalla = document.getElementById("pin-pantalla");
+  const entrada = document.getElementById("pin-entrada");
+  const formulario = document.getElementById("pin-formulario");
+  const error = document.getElementById("pin-error");
+
+  function bloquear() {
+    pantalla.style.display = "flex";
+    entrada.value = "";
+    error.textContent = "";
+  }
+
+  formulario.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    if (entrada.value === PIN_CORRECTO) {
+      pantalla.style.display = "none";
+      entrada.value = "";
+      error.textContent = "";
+    } else {
+      error.textContent = "Código incorrecto. Inténtalo otra vez.";
+      entrada.value = "";
+      entrada.focus();
+    }
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.hidden) bloquear();
+  });
+
+  window.addEventListener("pageshow", bloquear);
+})();
+</script>
+
 </body></html>
