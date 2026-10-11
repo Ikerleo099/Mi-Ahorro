@@ -361,13 +361,20 @@ let appOculta = false;
 document.addEventListener("visibilitychange", function () {
   if (document.hidden) {
     appOculta = true;
-  } else if (appOculta) {
+  } else {
+    if (appOculta) {
+      appOculta = false;
+      bloquear();
+    }
+  }
+});
+
+window.addEventListener("focus", function () {
+  if (appOculta) {
     appOculta = false;
     bloquear();
   }
 });
-  
-  });
 
   window.addEventListener("pageshow", bloquear);
 window.addEventListener("pagehide", bloquear);
