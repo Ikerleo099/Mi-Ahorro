@@ -10,7 +10,48 @@
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}.card{min-width:0;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow)}h2{font-size:17px;margin:0 0 5px}.sub{font-size:12px;color:var(--muted);line-height:1.5;margin:0 0 15px}.field{margin-bottom:11px}.field label{display:block;font-size:12px;color:#526457;font-weight:700;margin-bottom:6px}.field input,.field select{width:100%;border:1px solid #d7e3d9;border-radius:11px;padding:11px 12px;background:#fcfefc;font:inherit;font-size:14px;color:var(--ink);min-width:0}.field input:focus,.field select:focus{outline:2px solid #8dd8ad;border-color:transparent}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.btn{border:0;border-radius:11px;padding:11px 14px;font:inherit;font-weight:750;font-size:13px;cursor:pointer}.primary{background:var(--green);color:#fff;width:100%}.secondary{background:var(--mint);color:var(--green)}.neutral{background:#eef2ef;color:#35463b}.danger{background:#fff0f0;color:var(--red)}.full{width:100%}.result{background:#f0f6ff;border:1px solid #dbe8ff;border-radius:14px;padding:13px;margin-top:12px}.result .pct{font-size:25px;color:var(--blue);font-weight:850}.result p{font-size:12px;color:#4e617a;line-height:1.5;margin:4px 0 0}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.section-head h2{margin:0}.chart-wrap{height:190px}.chart-wrap canvas{display:block;width:100%;height:100%}.chart-note{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:6px}.history{display:flex;flex-direction:column;gap:8px;max-height:340px;overflow:auto}.entry{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:13px;padding:10px}.entry-icon{width:35px;height:35px;border-radius:11px;display:grid;place-items:center;background:var(--mint);flex-shrink:0}.entry-icon.out{background:#fff0f0}.entry-main{flex:1;min-width:0}.entry-title{font-size:13px;font-weight:750;overflow-wrap:anywhere}.entry-date{font-size:10px;color:var(--muted);margin-top:3px}.amount{font-size:13px;font-weight:800;white-space:nowrap}.plus{color:var(--green)}.minus{color:var(--red)}.empty{text-align:center;padding:20px 5px;font-size:13px;color:var(--muted)}.goalstats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.stat{background:#f7faf7;border:1px solid var(--line);border-radius:12px;padding:11px}.stat span{display:block;font-size:11px;color:var(--muted)}.stat strong{display:block;margin-top:4px;font-size:16px}.buttons{display:flex;gap:8px;flex-wrap:wrap}.buttons .btn{flex:1;min-width:120px}.notice{background:#f1f7f2;border-radius:12px;padding:10px;font-size:11px;line-height:1.5;color:#526457;margin-top:11px}.footer{text-align:center;font-size:11px;color:var(--muted);padding:18px 0 6px}.toast{position:fixed;bottom:18px;left:50%;transform:translate(-50%,20px);background:#173d2b;color:#fff;padding:12px 16px;border-radius:12px;font-size:13px;opacity:0;transition:.2s;pointer-events:none;max-width:90%;z-index:10}.toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:650px){.hero-grid,.grid{grid-template-columns:1fr}.hero{padding:18px}.wrap{padding:11px}.card{padding:15px}.brand h1{font-size:23px}.goalbox{padding:14px}}
 @media(max-width:350px){.row{grid-template-columns:1fr}.balance{font-size:30px}}
-</style>
+</style>/* Nuevo diseño premium de Mi Ahorro */
+:root{
+  --bg:#080d18;
+  --card:#111a29;
+  --ink:#f3f7ff;
+  --muted:#91a0b7;
+  --green:#5cf2ad;
+  --green2:#29c98b;
+  --mint:#172b35;
+  --line:#29384b;
+  --red:#ff7185;
+  --blue:#5c9dff;
+  --shadow:0 10px 30px #00000035;
+}
+body{
+  background:var(--bg)!important;
+  color:var(--ink);
+}
+.hero{
+  background:linear-gradient(135deg,#15352e,#111a29 75%)!important;
+  color:var(--ink);
+  border:1px solid #29473f;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+.grid>*,.panel,.card,.stat,.box{
+  border-color:var(--line);
+}
+button{
+  transition:filter .2s,transform .2s;
+}
+button:active{
+  transform:scale(.98);
+}
+input,select,textarea{
+  background:#111a29;
+  color:var(--ink);
+  border:1px solid var(--line);
+  border-radius:12px;
+}
+
+
 
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
